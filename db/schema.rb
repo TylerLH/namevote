@@ -14,19 +14,19 @@
 ActiveRecord::Schema.define(:version => 20111111173541) do
 
   create_table "comments", :force => true do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "name_id"
+    t.string    "commenter"
+    t.text      "body"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "name_id"
   end
 
   create_table "names", :force => true do |t|
-    t.string   "name"
-    t.integer  "votes",      :default => 0
-    t.string   "status",     :default => "active"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.integer   "votes",      :default => 0
+    t.string    "status",     :default => "active"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
 end
