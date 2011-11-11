@@ -1,20 +1,40 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Back to Home', root_path %>
+
+<div class="cf" style="float:right">
+	<h3>Comments</h3>
+	<% @comments.each do |comment| %>
+		<div class="comment">
+			<span class="poster">Posted by <strong><%= comment.commenter %></strong> <%= distance_of_time_in_words_to_now(comment.created_at, include_seconds = false) %> ago</span>
+			<p><%= comment.body %></p>
+		</div>
+	<% end %>
+</div>
+
 <p>
   <b>Name:</b>
-  <%= @name.name %>
+  <%= @name.name.to_s.titleize %>
 </p>
 
 <p>
   <b>Votes:</b>
   <%= @name.votes %>
 </p>
-
-<p>
-  <b>Status:</b>
-  <%= @name.status %>
-</p>
-
-
-<%= link_to 'Edit', edit_name_path(@name) %> |
-<%= link_to 'Back', names_path %>
+<div class="comment_form">
+	<h3>Add Comment</h3>
+	<%= form_for @comment do |f| %>
+		<%= f.hidden_field :name_id, :value => @name.id %>
+		<p>
+		<%= f.label :commenter, "Your Name" %>
+		<br />
+		<%= f.text_field :commenter %>
+		</p>
+		<br />
+		<%= f.label :body, "Your Comment" %>
+		<br />
+		<%= f.text_area :body, :rows => 10, :cols => 45 %>
+		<br />
+		<%= f.submit "Add Comment", :disable_with => 'Submiting...', :class => "comment_button" %>
+	<% end %>
+</div>

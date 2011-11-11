@@ -24,6 +24,8 @@ class NamesController < ApplicationController
   # GET /names/1.json
   def show
     @name = Name.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.where(:name_id => params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

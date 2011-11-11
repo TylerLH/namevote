@@ -2,7 +2,7 @@
 	<h3>All Names (Newest to Oldest)</h3>
 	<ul>
 	<%- @names.each do |n| %>
-		<li><%= n.name.to_s.titleize %> // <%= n.votes %> Votes <%= link_to "I Like This!", vote_path(n), :class => "vote_link" %></li>
+		<li><%= link_to n.name.to_s.titleize, n %> // <%= n.votes %> Votes <%= link_to "I Like This!", vote_path(n), :class => "vote_link" %></li>
 	<% end %>
 	</ul>
 	<%= will_paginate @names %>
