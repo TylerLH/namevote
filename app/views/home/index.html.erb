@@ -1,0 +1,21 @@
+<div class="latest_names">
+	<h3>All Names (Newest to Oldest)</h3>
+	<ul>
+	<%- @names.each do |n| %>
+		<li><%= n.name %> // <%= n.votes %> Votes <%= link_to "I Like This!", vote_path(n), :class => "vote_link" %></li>
+	<% end %>
+	</ul>
+	<%= will_paginate @names %>
+</div>
+
+<div class="add_name">
+<h3>Got a name to add? Enter it below.</h3>
+	<%= form_tag('/names', :remote => true) do -%>
+		<%= label_tag(:name, "Possible Name") -%>
+		<%= text_field_tag(:name) -%>
+		<%= submit_tag("Add Name", :class => "add_button", :disable_with => "Adding...") -%>
+	<% end -%>
+</div>
+
+<ol class="top_ten">
+</ol>

@@ -1,0 +1,6 @@
+<h2>Top Ten Names</h2>
+<ol class="top_ten">
+<% @names.each do |n| %>
+	<li><%= n.name -%> // <%= n.votes -%> Votes <strong><%= link_to "Vote!", vote_path(n) %></li></strong>
+<% end %>
+</ol>

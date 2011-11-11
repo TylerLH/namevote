@@ -1,0 +1,26 @@
+<h1>Listing names</h1>
+<%= will_paginate @names %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Votes</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @names.each do |name| %>
+  <tr>
+    <td><%= name.name %></td>
+    <td><%= name.votes %></td>
+    <td><%= name.status %></td>
+    <td><%= link_to 'Show', name %></td>
+    <td><%= link_to 'Edit', edit_name_path(name) %></td>
+    <td><%= link_to 'Delete', name, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Name', new_name_path %>
