@@ -13,7 +13,7 @@ $ ->
 							response
 						(key, value) -> 
 							console.log('Got em!!!')
-							$('ol.top_ten').append('<li>'+ value.name + ' // ' +value.votes+ ' Votes'+ '<a href="/vote/'+value.id+'" class="vote_link">I Like This!</a>'+ '</li>')
+							$('ol.top_ten').append('<li>'+ '<span class="topten_name">'+value.name + '</span> // ' +value.votes+ ' Votes'+ '<a href="/vote/'+value.id+'" class="vote_link">I Like This!</a>'+ '</li>')
 						)
 			)
 
