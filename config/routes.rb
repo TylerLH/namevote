@@ -1,4 +1,6 @@
 Namevote::Application.routes.draw do
+  resources :comments
+
   resources :names
 
   get "home/index"
