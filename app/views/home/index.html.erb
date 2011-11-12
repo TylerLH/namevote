@@ -3,7 +3,7 @@
 	<ul>
 	<%- @names.each do |n| %>
 		<li>
-			<% if has_comments(tn.id) %>
+			<% if has_comments(n.id) %>
 				!!!
 			<% end %>
 		<%= link_to n.name.to_s.titleize, n %> // <%= n.votes %> Votes <%= link_to "I Like This!", vote_path(n), :class => "vote_link" %></li>
