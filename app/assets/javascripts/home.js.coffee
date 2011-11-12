@@ -4,19 +4,6 @@
 
 $ ->
 
-	topten =	$.getJSON(
-				"/topten.json"
-				(response) ->
-					$('ol.top_ten').empty
-					$('ol.top_ten').before('<h2>Top Ten Names</h2>')
-					$.each(
-							response
-						(key, value) -> 
-							console.log('Got em!!!')
-							$('ol.top_ten').append('<li>'+ '<span class="topten_name">'+value.name + '</span> // ' +value.votes+ ' Votes'+ '<a href="/vote/'+value.id+'" class="vote_link">I Like This!</a>'+ '</li>')
-						)
-			)
-
 	$('.add_button').click (event) -> 
 		event.preventDefault()
 		$.post(
@@ -29,5 +16,3 @@ $ ->
 			.error (response) -> 
 				response = $.parseJSON(response.responseText)
 				alert("Name " + response.name)
-
-	topten

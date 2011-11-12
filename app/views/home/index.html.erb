@@ -18,4 +18,7 @@
 </div>
 
 <ol class="top_ten">
+<%- @topten.each do |tn| %>
+	<li><%= link_to tn.name, tn %> // <%= tn.votes %> Votes <%= link_to "I Like This!", vote_path(tn), :class => "vote_link" %></li>
+<% end %>
 </ol>
