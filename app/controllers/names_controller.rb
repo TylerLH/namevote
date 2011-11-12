@@ -2,7 +2,7 @@ class NamesController < ApplicationController
   # GET /names
   # GET /names.json
   def index
-    @names = Name.paginate(:page => params[:names_page], :per_page => 20, :order => "created_at DESC")
+    @names = Name.paginate(:page => params[:page], :per_page => 20, :order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +25,7 @@ class NamesController < ApplicationController
   def show
     @name = Name.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.where(:name_id => params[:id]).paginate(:page => params[:comments_page], :per_page => 5)
+    @comments = Comment.where(:name_id => params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
