@@ -8,6 +8,9 @@
 	<%= will_paginate @names %>
 </div>
 
+	<p>Don't forget to check your name's availability. Use this tool: <%= link_to "Domai.nr", "http://domai.nr" %></p>
+	<p>You can also comment on a name by clicking on it to view details.</p>
+
 <div class="add_name">
 <h3>Got a name to add? Enter it below.</h3>
 	<%= form_tag('/names', :remote => true) do -%>
